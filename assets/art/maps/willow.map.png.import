@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diw650yc47e7b"
-path="res://.godot/imported/willow.png-4055f48c41ebe58b8d3f3152cb40b0e4.ctex"
+uid="uid://vbj2ll8lykq8"
+path="res://.godot/imported/willow.map.png-22dc6adc2f61b3ef4466343317f78224.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/willow.png"
-dest_files=["res://.godot/imported/willow.png-4055f48c41ebe58b8d3f3152cb40b0e4.ctex"]
+source_file="res://assets/art/maps/willow.map.png"
+dest_files=["res://.godot/imported/willow.map.png-22dc6adc2f61b3ef4466343317f78224.ctex"]
 
 [params]
 

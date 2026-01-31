@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://kq5n6bfhj3mu"]
 
 [ext_resource type="Script" uid="uid://ch3t1yab54cu2" path="res://scenes/bosses/blue_boss.gd" id="1_qap3i"]
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="2_252gu"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qap3i"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_252gu"]
+size = Vector2(48, 64)
 
 [node name="BlueBoss" type="Node2D" unique_id=1523181863]
 script = ExtResource("1_qap3i")
-
-[node name="TextureRect" type="ColorRect" parent="." unique_id=1809834856]
-offset_left = -32.0
-offset_top = -48.0
-offset_right = 32.0
-offset_bottom = 52.0
-color = Color(0.32395726, 0.00069751084, 0.84981436, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1371283751]
 collision_layer = 0
@@ -20,9 +15,15 @@ input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=949800898]
-shape = SubResource("CapsuleShape2D_qap3i")
+shape = SubResource("RectangleShape2D_252gu")
 
 [node name="RespawnTimer" type="Timer" parent="." unique_id=1012373146]
 one_shot = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1628322523]
+modulate = Color(0, 0.47843137, 1, 1)
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(32, 48)
+texture = ExtResource("2_252gu")
 
 [connection signal="body_entered" from="Area2D" to="." method="on_player_entered"]

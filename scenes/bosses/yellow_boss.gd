@@ -5,7 +5,7 @@ extends Node2D
 @export var lighting_time := 1.5
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var lighting_timer: Timer = $LightingTimer
-const DAMAGE_AREA = preload("uid://djhfmk1ry1dsp")
+const YELLOW_LIGHTING = preload("res://scenes/yellow_lighting.tscn")
 
 
 func _ready() -> void:
@@ -28,7 +28,7 @@ func cast_shadow() -> void:
 func cast_lighting() -> void:
 	var pos := player.global_position
 	await get_tree().create_timer(delay).timeout
-	var lighting: DamageArea = DAMAGE_AREA.instantiate()
+	var lighting: DamageArea = YELLOW_LIGHTING.instantiate()
 	lighting.global_position = pos
 	get_tree().root.add_child(lighting)
 	lighting.spawn()

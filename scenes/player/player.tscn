@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://daiox0dfvi3rr" path="res://scripts/health_component.gd" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(64, 96)
+size = Vector2(32, 64)
 
 [node name="Player" type="CharacterBody2D" unique_id=2134266118 groups=["player"]]
 script = ExtResource("1_g2els")
@@ -21,12 +21,16 @@ script = ExtResource("1_3vyb7")
 [node name="MovementComponent" type="Node" parent="." unique_id=130045681 node_paths=PackedStringArray("player")]
 script = ExtResource("3_qhqgy")
 player = NodePath("..")
-speed = 450.0
+speed = 300.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=969863284]
 script = ExtResource("4_qlg0r")
 
 [node name="Char" type="Sprite2D" parent="." unique_id=560073252]
 z_index = 1
-scale = Vector2(2, 2)
 texture = ExtResource("4_dqkch")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=24425536]
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ke1nh0vasy5q"]
+
+[ext_resource type="Script" uid="uid://bxsj7sggwakj0" path="res://scenes/bosses/red_boss.gd" id="1_3l47f"]
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_ugv2h"]
+
+[node name="RedBoss" type="Node2D" unique_id=1096233416]
+script = ExtResource("1_3l47f")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=79892796]
+modulate = Color(0.9434466, 0, 0.159089, 1)
+scale = Vector2(32, 48)
+texture = ExtResource("1_ugv2h")
