@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bp1h4q7voqhfk"]
+
+[ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://diw650yc47e7b" path="res://assets/art/willow.png" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c81c6685t3s36" path="res://scenes/bosses/yellow_boss.tscn" id="3_h2yge"]
+
+[node name="Main" type="Node2D" unique_id=1484419296]
+
+[node name="Player" parent="." unique_id=2134266118 instance=ExtResource("1_ig7tw")]
+position = Vector2(-8, 8)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=921280763]
+position = Vector2(8, -8)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="Willow" type="Sprite2D" parent="." unique_id=5498593]
+texture = ExtResource("2_h2yge")
+
+[node name="YellowBoss" parent="." unique_id=1126699482 instance=ExtResource("3_h2yge")]

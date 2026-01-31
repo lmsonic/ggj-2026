@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cydt866lve8a2"]
+
+[ext_resource type="Texture2D" uid="uid://diw650yc47e7b" path="res://assets/art/willow.png" id="1_pgjkr"]
+[ext_resource type="PackedScene" uid="uid://kq5n6bfhj3mu" path="res://scenes/bosses/blue_boss.tscn" id="2_85ymm"]
+
+[node name="BlueRoom" type="Node2D" unique_id=860739507]
+
+[node name="Willow" type="Sprite2D" parent="." unique_id=1241544187]
+texture = ExtResource("1_pgjkr")
+
+[node name="BlueBoss" parent="." unique_id=1523181863 node_paths=PackedStringArray("random_respawn_parent") instance=ExtResource("2_85ymm")]
+position = Vector2(216, 0)
+random_respawn_parent = NodePath("../BlueBossPositions")
+
+[node name="BlueBossPositions" type="Node2D" parent="." unique_id=839396120]
+
+[node name="Marker2D" type="Marker2D" parent="BlueBossPositions" unique_id=916609655]
+position = Vector2(-592, -392)
+
+[node name="Marker2D2" type="Marker2D" parent="BlueBossPositions" unique_id=617000941]
+position = Vector2(-552, 320)
+
+[node name="Marker2D3" type="Marker2D" parent="BlueBossPositions" unique_id=1811056211]
+position = Vector2(616, 240)
+
+[node name="Marker2D4" type="Marker2D" parent="BlueBossPositions" unique_id=147495675]
+position = Vector2(464, -400)

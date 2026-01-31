@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://kq5n6bfhj3mu"]
+
+[ext_resource type="Script" uid="uid://ch3t1yab54cu2" path="res://scenes/bosses/blue_boss.gd" id="1_qap3i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qap3i"]
+
+[node name="BlueBoss" type="Node2D" unique_id=1523181863]
+script = ExtResource("1_qap3i")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1809834856]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 52.0
+color = Color(0.32395726, 0.00069751084, 0.84981436, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1371283751]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=949800898]
+shape = SubResource("CapsuleShape2D_qap3i")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1012373146]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="on_player_entered"]

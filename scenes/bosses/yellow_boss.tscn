@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c81c6685t3s36"]
+
+[ext_resource type="Script" uid="uid://cc1re6hh53w3y" path="res://scenes/bosses/yellow_boss.gd" id="1_w3sxn"]
+
+[node name="YellowBoss" type="Node2D" unique_id=1126699482]
+script = ExtResource("1_w3sxn")
+damage = null
+delay = null
+lighting_time = null
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=2093302327]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 52.0
+color = Color(1, 0.90588236, 0.4745098, 1)
+
+[node name="LightingTimer" type="Timer" parent="." unique_id=374165131]
+one_shot = true

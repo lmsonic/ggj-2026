@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://djhfmk1ry1dsp"]
+
+[ext_resource type="Script" uid="uid://dapia6wbkt1yb" path="res://scripts/damaging_component.gd" id="1_5frsa"]
+[ext_resource type="Script" uid="uid://kgvp7mpme4pq" path="res://scenes/damage_area.gd" id="1_fhj2k"]
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="3_c2uvg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qw3t"]
+radius = 48.0
+
+[node name="DamageArea" type="Node2D" unique_id=1430286517]
+script = ExtResource("1_fhj2k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=681413044]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=666212719]
+shape = SubResource("CircleShape2D_1qw3t")
+debug_color = Color(0.9710652, 0, 0.4537108, 0.41960785)
+
+[node name="DamagingComponent" type="Node" parent="." unique_id=1127971301]
+script = ExtResource("1_5frsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1633894941]
+modulate = Color(1, 1, 0.2, 1)
+position = Vector2(0, 1.4305115e-06)
+scale = Vector2(80, -80)
+texture = ExtResource("3_c2uvg")
+
+[node name="LifetimeTimer" type="Timer" parent="." unique_id=1664077359]
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="on_player_entered"]
