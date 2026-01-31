@@ -7,12 +7,13 @@
 [ext_resource type="Script" uid="uid://daiox0dfvi3rr" path="res://scripts/health_component.gd" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(32, 64)
+size = Vector2(32, 40)
 
 [node name="Player" type="CharacterBody2D" unique_id=2134266118 groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1304755964]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="InputComponent" type="Node" parent="." unique_id=946395851]

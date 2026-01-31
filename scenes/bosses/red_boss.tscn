@@ -10,3 +10,6 @@ script = ExtResource("1_3l47f")
 modulate = Color(0.9434466, 0, 0.159089, 1)
 scale = Vector2(32, 48)
 texture = ExtResource("1_ugv2h")
+
+[node name="ThrowTimer" type="Timer" parent="." unique_id=2024357560]
+autostart = true

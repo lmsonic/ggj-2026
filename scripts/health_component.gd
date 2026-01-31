@@ -4,10 +4,10 @@ class_name HealthComponent extends Node
 @onready var health := max_health
 
 signal dead
-
+signal hit
 func damage(value: int) -> void:
 	health -= value
-	prints("current health",health)
+	hit.emit()
 	if health <= 0:
 		die()
 

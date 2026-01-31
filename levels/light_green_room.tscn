@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://brkcrywhcdfec"]
+
+[ext_resource type="PackedScene" uid="uid://d4ic74pf5y06r" path="res://scenes/bosses/light_green_boss.tscn" id="2_afc3l"]
+[ext_resource type="Texture2D" uid="uid://5pvrk7qklk3n" path="res://assets/art/maps/cirkul.map.png" id="2_q8vr5"]
+[ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="3_q8vr5"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_afc3l"]
+vertices = PackedVector2Array(253.53125, -35.882813, 238.35938, 115.86719, 147.74219, 221.60156, -124.671875, 198.25, -230, 130.53906, -230, -27.859375, -115.71875, -142.13281, 124.34375, -149.88281)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-240, -32, -120, -152, 128, -160, 264, -40, 248, 120, 152, 232, -128, 208, -240, 136)])
+
+[node name="LightGreenRoom" type="Node2D" unique_id=1979273378]
+
+[node name="Cirkul_map" type="Sprite2D" parent="." unique_id=1433797657]
+z_index = -1
+texture = ExtResource("2_q8vr5")
+
+[node name="LightGreenBoss" parent="." unique_id=1345427284 node_paths=PackedStringArray("navigation_region") instance=ExtResource("2_afc3l")]
+position = Vector2(176, -112)
+navigation_region = NodePath("../NavigationRegion2D")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=496682229]
+navigation_polygon = SubResource("NavigationPolygon_afc3l")
+
+[node name="Player" parent="." unique_id=2134266118 instance=ExtResource("3_q8vr5")]

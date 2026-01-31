@@ -4,7 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="1_vbxdo"]
 [ext_resource type="Texture2D" uid="uid://bsgjfvrfea5rk" path="res://assets/art/maps/hera.map.png" id="3_fgu3n"]
 
+[sub_resource type="TileSet" id="TileSet_fgu3n"]
+
 [node name="YellowRoom" type="Node2D" unique_id=673250998]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1472136535]
+tile_set = SubResource("TileSet_fgu3n")
 
 [node name="Hera_map" type="Sprite2D" parent="." unique_id=80279923]
 texture = ExtResource("3_fgu3n")

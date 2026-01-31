@@ -19,9 +19,9 @@ func _process(_delta: float) -> void:
 	cast_shadow()
 
 func cast_shadow() -> void:
-	var num := lighting_time - lighting_timer.time_left 
-	var t := num/lighting_time
-	var color := Color.WHITE.darkened(t)
+	var num := lighting_time - lighting_timer.time_left
+	var t := num / lighting_time
+	var color := Color.WHITE.darkened(t * 0.5)
 	player.modulate = color
 
 	
