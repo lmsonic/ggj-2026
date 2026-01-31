@@ -2,19 +2,42 @@ class_name SoundComponent extends AudioStreamPlayer2D
 
 @export var same_seek := false
 
-func play_sound(s:AudioStream,fade:=0.0) -> void:
-	if stream != s:
-		var tween := create_tween()
-		tween.tween_property(self,"volume_db",-20.0,fade)
-		tween.tween_property(self,"volume_db",0.0,fade)
+func fade_sound_out_in(fade:=0.2) -> Tween:
+	var tween := create_tween()
+	tween.tween_property(self,"volume_db",-10.0,fade)
+	tween.tween_property(self,"volume_db",0.0,fade)
+	return tween
+
+func fade_sound_out(fade:=0.2) -> Tween:
+	var tween := create_tween()
+	tween.tween_property(self,"volume_db",-10.0,fade)
+	return tween
+
+
+
+
+func play_sound(s:AudioStream=null) -> void:
+	if s == null:
+		if not playing:
+			var tween := fade_sound_out_in()
+			
+			play()
+	elif stream != s:
+		var tween := fade_sound_out_in()
 		stream = s
 		await tween.finished
 		play()
 
-func stop_sound(fade:=0.0) -> void:
+
+func remove_sound() -> void:
+	var tween := fade_sound_out()
+	await tween.finished
+	volume_db = 0.0
 	stream = null
-	var tween := create_tween()
-	tween.tween_property(self,"volume_db",-20.0,fade)
+	stop()
+
+func stop_sound() -> void:
+	var tween := fade_sound_out()
 	await tween.finished
 	volume_db = 0.0
 	stop()

@@ -14,7 +14,6 @@ var sprint_exhausted := false
 
 func move(input: Vector2, delta: float, shift_pressed:bool=false) -> void:
 	var is_sprinting := shift_pressed and not sprint_exhausted
-	prints(is_sprinting,sprint_charge)
 	if is_sprinting:
 		speed = max_speed * sprint_multiplier
 		sprint_charge = maxf(sprint_charge - delta, 0.0)

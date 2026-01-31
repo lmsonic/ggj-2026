@@ -2,10 +2,12 @@ class_name Player extends CharacterBody2D
 @onready var input_component: InputComponent = $InputComponent
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var health_component: HealthComponent = $HealthComponent
-@onready var sound_component: SoundComponent = $SoundComponent
+@onready var walk_sound_component: SoundComponent = $WalkSoundComponent
+@onready var run_sound_component: SoundComponent = $RunSoundComponent
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var run_sound_thresh:= 150.0
+@onready var run_sound_thresh:= movement_component.max_speed + 10.0
 
 
 func _ready() -> void:
@@ -26,9 +28,6 @@ func hit_feedback() -> void:
 func on_death() -> void:
 	get_tree().reload_current_scene()
 	
-const RUN = preload("res://assets/sfx/run.wav")
-const WALK = preload("res://assets/sfx/walk.wav")
-
 func _physics_process(delta: float) -> void:
 	var input := input_component.fetch()
 	if input == Vector2.ZERO:
@@ -48,10 +47,13 @@ func _physics_process(delta: float) -> void:
 	movement_component.move(input,delta,input_component.shift_pressed)
 	var speed2 := velocity.length_squared()
 	if speed2 >= run_sound_thresh * run_sound_thresh:
-		sound_component.play_sound(RUN)
-	elif speed2 > 0.0:
-		sound_component.play_sound(WALK)
+		run_sound_component.play_sound()
+		walk_sound_component.stop_sound()
+	elif speed2 > 0.01:
+		run_sound_component.stop_sound()
+		walk_sound_component.play_sound()
 	else:
-		sound_component.stop_sound()
+		run_sound_component.stop_sound()
+		walk_sound_component.stop_sound()
 		
 	
