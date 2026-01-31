@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var damage := 1
-@export var delay := 0.2
+@export var delay := 0.5
 @export var lighting_time := 1.5
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var lighting_timer: Timer = $LightingTimer

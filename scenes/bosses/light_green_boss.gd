@@ -1,6 +1,6 @@
 class_name LightGreenBoss extends CharacterBody2D
+const LIGHT_GREEN_WAVE = preload("res://scenes/light_green_wave.tscn")
 
-const LIGHT_GREEN_WAVE = preload("res://levels/light_green_wave.tscn")
 
 @onready var arc_jump_component: ArcJumpComponent = $ArcJumpComponent
 

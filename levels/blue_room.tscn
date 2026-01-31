@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cydt866lve8a2"]
 
 [ext_resource type="Texture2D" uid="uid://dn8fdex2ls0lb" path="res://assets/art/maps/willow.tileset.png" id="1_1el0r"]
-[ext_resource type="Texture2D" uid="uid://vbj2ll8lykq8" path="res://assets/art/maps/willow.map.png" id="1_05x3d"]
 [ext_resource type="PackedScene" uid="uid://kq5n6bfhj3mu" path="res://scenes/bosses/blue_boss.tscn" id="2_85ymm"]
 [ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="3_qweck"]
 
@@ -224,8 +223,3 @@ position = Vector2(320, 112)
 position = Vector2(464, -400)
 
 [node name="Player" parent="." unique_id=2134266118 instance=ExtResource("3_qweck")]
-
-[node name="Willow_map" type="Sprite2D" parent="." unique_id=1570624979]
-visible = false
-modulate = Color(1, 1, 1, 0.18431373)
-texture = ExtResource("1_05x3d")

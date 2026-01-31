@@ -2,8 +2,10 @@ class_name Player extends CharacterBody2D
 @onready var input_component: InputComponent = $InputComponent
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var sound_component: SoundComponent = $SoundComponent
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-@onready var sprite: Sprite2D = $Char
+@export var run_sound_thresh:= 150.0
 
 
 func _ready() -> void:
@@ -13,14 +15,43 @@ func _ready() -> void:
 const hit_color := Color("a62572")
 func hit_feedback() -> void:
 	var tween := create_tween()
-	tween.tween_property(sprite,"modulate",hit_color,0.1)
-	tween.tween_property(sprite,"modulate",Color.WHITE,0.4)
-	pass
+	
+	tween.tween_property(anim,"modulate",hit_color,0.1)
+	tween.tween_property(anim,"modulate",Color.WHITE,0.4)
+	tween.parallel()
+	tween.tween_property(anim,"scale",Vector2(1.2,1.2),0.1)
+	tween.tween_property(anim,"scale",Vector2.ONE,0.05)
+
 
 func on_death() -> void:
 	get_tree().reload_current_scene()
 	
+const RUN = preload("res://assets/sfx/run.wav")
+const WALK = preload("res://assets/sfx/walk.wav")
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var input := input_component.fetch()
-	movement_component.move(input)
+	if input == Vector2.ZERO:
+		anim.stop()
+		anim.frame = 1
+	if absf(input.x) >= absf(input.y):
+		if input.x > 0.0:
+			anim.play("right")
+		elif input.x < 0.0:
+			anim.play("left")
+	else:
+		if input.y > 0.0:
+			anim.play("down")
+		elif input.y < 0.0:
+			anim.play("up")
+	
+	movement_component.move(input,delta,input_component.shift_pressed)
+	var speed2 := velocity.length_squared()
+	if speed2 >= run_sound_thresh * run_sound_thresh:
+		sound_component.play_sound(RUN)
+	elif speed2 > 0.0:
+		sound_component.play_sound(WALK)
+	else:
+		sound_component.stop_sound()
+		
+	
