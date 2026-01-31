@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bsghvvs5cwkav"]
+
+[ext_resource type="Texture2D" uid="uid://b3rkrxkprih8s" path="res://assets/art/maps/hall.map.png" id="1_2tmi7"]
+[ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="2_dfgp7"]
+
+[node name="Hall" type="Node2D" unique_id=809190249]
+
+[node name="Hall_map" type="Sprite2D" parent="." unique_id=1438588156]
+texture = ExtResource("1_2tmi7")
+
+[node name="Player" parent="." unique_id=2134266118 instance=ExtResource("2_dfgp7")]

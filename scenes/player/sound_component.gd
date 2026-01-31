@@ -19,8 +19,7 @@ func fade_sound_out(fade:=0.2) -> Tween:
 func play_sound(s:AudioStream=null) -> void:
 	if s == null:
 		if not playing:
-			var tween := fade_sound_out_in()
-			
+			fade_sound_out_in()
 			play()
 	elif stream != s:
 		var tween := fade_sound_out_in()
