@@ -17,6 +17,7 @@ func end_jump() -> void:
 	var wave :Node2D= LIGHT_GREEN_WAVE.instantiate()
 	wave.global_position = global_position
 	get_tree().root.add_child(wave)
+	GameManager.shake_camera()
 	
 	
 

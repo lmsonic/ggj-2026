@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var walk_sound_component: SoundComponent = $WalkSoundComponent
 @onready var run_sound_component: SoundComponent = $RunSoundComponent
+@onready var camera: PlayerCamera = $Camera2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 

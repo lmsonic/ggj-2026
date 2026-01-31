@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://mpxsd80fpe0j" path="res://assets/sfx/run2.wav" id="10_fcs02"]
 [ext_resource type="AudioStream" uid="uid://ttbc23vyllig" path="res://assets/sfx/run3.wav" id="11_myrg7"]
 [ext_resource type="AudioStream" uid="uid://cvwyxgrex1rye" path="res://assets/sfx/run4.wav" id="12_kvlxm"]
+[ext_resource type="Script" uid="uid://ph52o05ndg8p" path="res://scenes/player/player_camera.gd" id="14_fcs02"]
+[ext_resource type="Script" uid="uid://cxxg6pltkakcc" path="res://scripts/shake_camera_comp.gd" id="15_myrg7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(32, 40)
@@ -176,9 +178,14 @@ script = ExtResource("4_qlg0r")
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
+script = ExtResource("14_fcs02")
+
+[node name="ShakeCameraComponent" type="Node" parent="Camera2D" unique_id=1562892430 node_paths=PackedStringArray("camera")]
+script = ExtResource("15_myrg7")
+camera = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1097105646]
 sprite_frames = SubResource("SpriteFrames_lgqa7")
 animation = &"up"
 autoplay = "down"
-frame_progress = 0.9697019
+frame_progress = 0.7220579
