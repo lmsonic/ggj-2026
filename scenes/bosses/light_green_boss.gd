@@ -16,17 +16,20 @@ func _ready() -> void:
 func end_jump() -> void:
 	var wave :Node2D= LIGHT_GREEN_WAVE.instantiate()
 	wave.global_position = global_position
+	prints("wave",i)
 	get_tree().root.add_child(wave)
 	GameManager.shake_camera()
 	
-	
+var i := 0
 
 func _physics_process(delta: float) -> void:
 	if arc_jump_component.is_jumping:
 		velocity = arc_jump_component.calculate_velocity(delta)
 		move_and_slide()
 
-		if arc_jump_component.is_jumping and arc_jump_component.calculate_distance() <= 100.0:
+		if arc_jump_component.calculate_distance() <= 100.0:
 			arc_jump_component.is_jumping = false
+			
+			i += 1
 			end_jump()
 			jump_timer.start(jump_time)

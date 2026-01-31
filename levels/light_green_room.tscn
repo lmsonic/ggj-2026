@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dh430la2xim3j" path="res://assets/art/maps/cirkul2-Sheet.png" id="1_7qff6"]
 [ext_resource type="PackedScene" uid="uid://d4ic74pf5y06r" path="res://scenes/bosses/light_green_boss.tscn" id="2_afc3l"]
 [ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="3_q8vr5"]
+[ext_resource type="AudioStream" uid="uid://c3pmix1ph5tac" path="res://assets/music/cirkulTheme.wav" id="4_7qff6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0f3gl"]
 texture = ExtResource("1_7qff6")
@@ -149,3 +150,7 @@ navigation_region = NodePath("../NavigationRegion2D")
 navigation_polygon = SubResource("NavigationPolygon_afc3l")
 
 [node name="Player" parent="." unique_id=2134266118 instance=ExtResource("3_q8vr5")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1566784462]
+stream = ExtResource("4_7qff6")
+autoplay = true

@@ -1,7 +1,7 @@
 extends Node2D
 @export var wave_speed := 10.0
 @export var wave_width:= 10.0
-@export var wave_death_speed:= 4.0
+@export var wave_death_speed:= 6.0
 var radius := 0.0
 var width :=wave_width
 @onready var area: Area2D = $Area2D
@@ -18,6 +18,7 @@ func on_player_entered(body:Node2D) -> void:
 	var player := body as Player
 	if player!=null:
 		damaging_component.damage(player.health_component)
+		area.set_deferred("monitorable",false)
 	
 func _draw() -> void:
 	draw_circle(Vector2.ZERO,radius,Color.LIGHT_GREEN,false,width)
