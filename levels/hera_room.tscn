@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://fjhy7jba5cac" path="res://assets/art/maps/sand_map_tilespng.png" id="2_h7f2e"]
 [ext_resource type="PackedScene" uid="uid://x4h5ug8xs5ul" path="res://scenes/bosses/hera/hera_statue.tscn" id="4_0mmj1"]
 [ext_resource type="Texture2D" uid="uid://ckkibbhu5f40y" path="res://assets/art/maps/sand_map.png" id="4_h7f2e"]
+[ext_resource type="AudioStream" uid="uid://c7vo3r1uopgec" path="res://assets/music/heraTheme.mp3" id="6_u3rv5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3rv5"]
 texture = ExtResource("2_h7f2e")
@@ -567,3 +568,7 @@ hera_boss = NodePath("../HeraBoss")
 [node name="Statue4" parent="." unique_id=1798924730 node_paths=PackedStringArray("hera_boss") instance=ExtResource("4_0mmj1")]
 position = Vector2(144, 120)
 hera_boss = NodePath("../HeraBoss")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=961623065]
+stream = ExtResource("6_u3rv5")
+autoplay = true

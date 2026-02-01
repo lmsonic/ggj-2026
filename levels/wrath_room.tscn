@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://egrpo8jpupw2" path="res://assets/art/maps/wrath.map.2.png" id="1_7f26u"]
 [ext_resource type="PackedScene" uid="uid://ke1nh0vasy5q" path="res://scenes/bosses/wrath/wrath_boss.tscn" id="2_ubqg4"]
 [ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="4_3x6wa"]
+[ext_resource type="AudioStream" uid="uid://bmvw8juyfodwg" path="res://assets/music/wrathTheme.mp3" id="5_qvd5q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3x6wa"]
 texture = ExtResource("1_5sqvy")
@@ -305,3 +306,7 @@ position = Vector2(-400, 0)
 
 [node name="Node2D3" type="Node2D" parent="WrathPath" unique_id=343116041]
 position = Vector2(-312, 128)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1663847243]
+stream = ExtResource("5_qvd5q")
+autoplay = true
