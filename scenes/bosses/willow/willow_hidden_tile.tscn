@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dlgetmjbuukqi"]
+
+[ext_resource type="Texture2D" uid="uid://dn8fdex2ls0lb" path="res://assets/art/maps/willow.tileset.png" id="1_j4mm7"]
+[ext_resource type="Script" uid="uid://mjcmoi20kn8c" path="res://scenes/bosses/willow/willow_hidden_tile.gd" id="2_umpyq"]
+[ext_resource type="PackedScene" uid="uid://dwmwy54d2xu1m" path="res://scripts/interactable_component.tscn" id="3_g3xp5"]
+
+[node name="WillowHiddenTile" type="Sprite2D" unique_id=2109582278]
+modulate = Color(0.7, 0.7, 0.7, 1)
+texture = ExtResource("1_j4mm7")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+script = ExtResource("2_umpyq")
+
+[node name="InteractableComponent" parent="." unique_id=521369930 instance=ExtResource("3_g3xp5")]
+
+[connection signal="interacted" from="InteractableComponent" to="." method="_on_interactable_component_interacted"]

@@ -1,5 +1,4 @@
 @tool class_name Cutscene extends AnimationPlayer
-@onready var texture_rect: TextureRect = $TextureRect
 
 @export_tool_button("create cutscenes") var create_cutscenes_button := create_cutscenes
 @export_dir var cutscenes_dir:String
@@ -7,12 +6,13 @@ const HERA_DEATH = preload("res://assets/sfx/heraDeath.wav")
 const HOLLOW_DEATH = preload("res://assets/sfx/hollowDeath.wav")
 const CIRKUL_DEATH = preload("res://assets/sfx/cirkulDeath.wav")
 @onready var sound_component: SoundComponent = $SoundComponent
+@onready var texture_rect: TextureRect = $"../TextureRect"
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	texture_rect.hide()
-	#play_cutscene("hollow")
+	#play_cutscene("hera")
 	animation_finished.connect(
 		func (_name:String) -> void:
 			texture_rect.hide()

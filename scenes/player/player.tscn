@@ -94,6 +94,8 @@
 [ext_resource type="Texture2D" uid="uid://creefvcoace1v" path="res://assets/art/cutscenes/wrath/wrath15.png" id="85_vbe6q"]
 [ext_resource type="Texture2D" uid="uid://dj5rwuyldr5hv" path="res://assets/art/cutscenes/wrath/wrath08.png" id="86_gsldg"]
 [ext_resource type="Texture2D" uid="uid://b7p03dooxe0l2" path="res://assets/art/cutscenes/wrath/wrath09.png" id="87_rrrpt"]
+[ext_resource type="Script" uid="uid://c8yqw2nxmuvl0" path="res://scenes/player/interacting_component.gd" id="95_0ioy2"]
+[ext_resource type="Texture2D" uid="uid://j53erocvqmjr" path="res://addons/kenney_development-essentials/4×4 Pixels/pixel-white.png" id="96_vlhku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(31, 31)
@@ -116,42 +118,10 @@ stream_3/stream = ExtResource("12_kvlxm")
 
 [sub_resource type="Animation" id="Animation_uf5tr"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.001),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("34_qxlpa")]
-}
-
-[sub_resource type="Animation" id="Animation_lgqa7"]
-resource_name = "cirkul"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [null, ExtResource("18_lgqa7")]
-}
-
-[sub_resource type="Animation" id="Animation_8ydkj"]
-resource_name = "hera"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3j4b4"]
 _data = {
-&"RESET": SubResource("Animation_uf5tr"),
-&"cirkul": SubResource("Animation_lgqa7"),
-&"hera": SubResource("Animation_8ydkj")
+&"RESET": SubResource("Animation_uf5tr")
 }
 
 [sub_resource type="Animation" id="Animation_avmva"]
@@ -159,7 +129,7 @@ length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -174,7 +144,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -189,7 +159,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -204,7 +174,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -219,7 +189,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -237,6 +207,9 @@ _data = {
 &"willow": SubResource("Animation_ws0t6"),
 &"wrath": SubResource("Animation_i6ap2")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ioy2"]
+radius = 32.984844
 
 [node name="Player" type="CharacterBody2D" unique_id=412148617 groups=["player"]]
 script = ExtResource("1_g2els")
@@ -294,23 +267,46 @@ player = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1872451583]
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1531668854]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("64_drv02")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=185376286]
 libraries/ = SubResource("AnimationLibrary_3j4b4")
 libraries/cutscenes = SubResource("AnimationLibrary_88c1f")
 script = ExtResource("18_uf5tr")
 cutscenes_dir = "res://assets/art/cutscenes"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/AnimationPlayer" unique_id=1531668854]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 960.0
-offset_bottom = 640.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("85_vbe6q")
-
 [node name="SoundComponent" type="AudioStreamPlayer2D" parent="CanvasLayer/AnimationPlayer" unique_id=359500004]
 script = ExtResource("5_75vfm")
 metadata/_custom_type_script = "uid://hjq0cyuvuve5"
+
+[node name="InteractingComponent" type="Area2D" parent="." unique_id=325532432]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+monitorable = false
+script = ExtResource("95_0ioy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractingComponent" unique_id=1612931288]
+shape = SubResource("CircleShape2D_0ioy2")
+
+[node name="InteractedFeedback" type="Node2D" parent="InteractingComponent" unique_id=1794137957]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractingComponent/InteractedFeedback" unique_id=866069533]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("96_vlhku")
+
+[node name="Sprite2D2" type="Sprite2D" parent="InteractingComponent/InteractedFeedback" unique_id=1883632596]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -56)
+scale = Vector2(1.5, 5)
+texture = ExtResource("96_vlhku")

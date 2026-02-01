@@ -1,31 +1,31 @@
-extends Node2D
+class_name WillowBoss extends Node2D
 
-@export var random_respawn_parent: Node2D
-@onready var respawn_time := 2.0
-@onready var respawn_timer: Timer = $RespawnTimer
+@export var random_respawns: Node2D
+@export var required_n_finds:=4
+var found:=0
 @onready var area: Area2D = $Area2D
 
 func _ready() -> void:
-	respawn_timer.timeout.connect(
-		func() -> void:
-			set_enabled(true)
-	)
-
+	random_respawns.hide()
+	random_respawns.process_mode = Node.PROCESS_MODE_DISABLED
 
 func respawn_random() -> void:
-	var node: Node2D = random_respawn_parent.get_children().pick_random()
-	var pos := node.global_position
-	global_position = pos
-	
-func set_enabled(value: bool) -> void:
-	visible = value
-	area.set_deferred("monitoring", value)
-	area.set_collision_mask_value(1, value)
-	
+	print(found)
+	found +=1
+	if found > required_n_finds:
+		GameManager.play_cutscene("willow")
+		return
+	for c:WillowHiddenTile in random_respawns.get_children():
+		c.willow_present = false
+	var tile: WillowHiddenTile = random_respawns.get_children().pick_random()
+	tile.willow_present = true
+	print(tile.name)
 
 func on_player_entered(body: Node2D) -> void:
 	var player := body as Player
 	if player != null:
-		set_enabled(false)
+		area.set_deferred("monitoring",false)
+		random_respawns.show()
+		random_respawns.process_mode = Node.PROCESS_MODE_INHERIT
 		respawn_random()
-		respawn_timer.start(respawn_time)
+		hide()

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dwmwy54d2xu1m"]
+
+[ext_resource type="Script" uid="uid://d2frgr2gvmdau" path="res://scripts/interactable_component.gd" id="1_ihoq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_252gu"]
+size = Vector2(48, 64)
+
+[node name="InteractableComponent" type="Area2D" unique_id=521369930]
+collision_layer = 2
+collision_mask = 0
+input_pickable = false
+monitoring = false
+script = ExtResource("1_ihoq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090208107]
+shape = SubResource("RectangleShape2D_252gu")
