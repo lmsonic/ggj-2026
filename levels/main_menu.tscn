@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b2bpt77gk4ibt"]
+
+[ext_resource type="Script" uid="uid://b1do5a1h7obyo" path="res://levels/main_menu.gd" id="1_0ettg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_spmat"]
+font_size = 50
+
+[node name="MainMenu" type="Control" unique_id=980062644]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ettg")
+
+[node name="PanelContainer" type="Panel" parent="." unique_id=935191797]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=963378730]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 164.0
+offset_right = 157.0
+offset_bottom = 233.0
+grow_horizontal = 2
+text = "Soulsearcher"
+label_settings = SubResource("LabelSettings_spmat")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=82067259]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -256.0
+offset_right = 148.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2058052872]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2059027698]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
