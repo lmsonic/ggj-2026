@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://elb163g8n573"]
+
+[ext_resource type="Texture2D" uid="uid://dcpc1s5udr4t6" path="res://assets/art/maps/hollow.map.png" id="1_ktifr"]
+[ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="2_143u5"]
+[ext_resource type="PackedScene" uid="uid://ldkoocrk3kx2" path="res://scenes/bosses/hollow/hollow_boss.tscn" id="2_byf3a"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_143u5"]
+vertices = PackedVector2Array(69, -59, 69, -87.10156, 251, -90.890625, 251, -59, 187, -5, 315, -59, 315, -5, 187, 91, 69, 91, 69, 59, 5, 59, 5, 27, -5, -59, -141, 27, -187, -59, -141, 59, -197, 59, -251, 5, -251, -59, -197, 91, -251, 91, -251, 59, -283, 59, -283, 5, -187, -87, -5, -87)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 4), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(0, 4, 9, 10, 11), PackedInt32Array(12, 0, 11, 13), PackedInt32Array(14, 13, 15, 16, 17, 18), PackedInt32Array(16, 19, 20, 21), PackedInt32Array(21, 22, 23, 17), PackedInt32Array(16, 21, 17), PackedInt32Array(12, 13, 14, 24, 25)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-288, 64, -288, 0, -256, 0, -256, -64, -192, -64, -192, -92, 0, -92, 0, -64, 64, -64, 64, -92, 256, -96, 256, -64, 320, -64, 320, 0, 192, 0, 192, 96, 64, 96, 64, 64, 0, 64, 0, 32, -136, 32, -136, 64, -192, 64, -192, 96, -256, 96, -256, 64)])
+agent_radius = 5.0
+
+[node name="HollowRoom" type="Node2D" unique_id=1459097546]
+
+[node name="Hollow_map" type="Sprite2D" parent="." unique_id=715776299]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ktifr")
+
+[node name="HollowBoss" parent="." unique_id=710435547 instance=ExtResource("2_byf3a")]
+position = Vector2(-480, 80)
+
+[node name="Player" parent="." unique_id=2134266118 instance=ExtResource("2_143u5")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1610184863]
+scale = Vector2(2, 2)
+navigation_polygon = SubResource("NavigationPolygon_143u5")

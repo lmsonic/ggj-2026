@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://8qgk75ldh5jj"]
+
+[ext_resource type="Script" uid="uid://dy20ppo3i47jt" path="res://scenes/bosses/hera/hera_cloud.gd" id="1_ct8eq"]
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_wms8s"]
+[ext_resource type="Script" uid="uid://dapia6wbkt1yb" path="res://scripts/damaging_component.gd" id="3_n0tm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wms8s"]
+size = Vector2(16, 48)
+
+[node name="Cloud" type="Node2D" unique_id=923179448]
+script = ExtResource("1_ct8eq")
+
+[node name="Lighting" type="Node2D" parent="." unique_id=1988105892]
+
+[node name="Lighting" type="Sprite2D" parent="Lighting" unique_id=298937571]
+modulate = Color(1, 0.8833333, 0, 1)
+position = Vector2(-5.684342e-14, 8)
+rotation = -1.2631471
+scale = Vector2(20.604916, 4.5808706)
+texture = ExtResource("1_wms8s")
+
+[node name="Lighting2" type="Sprite2D" parent="Lighting" unique_id=883451250]
+modulate = Color(1, 0.8833333, 0, 1)
+position = Vector2(-0.5755461, 40.935265)
+rotation = -1.2631471
+scale = Vector2(18.473639, 4.0502567)
+texture = ExtResource("1_wms8s")
+
+[node name="Lighting3" type="Sprite2D" parent="Lighting" unique_id=702746125]
+modulate = Color(1, 0.8833333, 0, 1)
+position = Vector2(-0.56008995, 25.03218)
+rotation = -1.886293
+scale = Vector2(19.269283, 4.3104796)
+texture = ExtResource("1_wms8s")
+
+[node name="CloudSprite" type="Sprite2D" parent="." unique_id=1984205710]
+self_modulate = Color(0.4509804, 0.4509804, 0.4509804, 1)
+scale = Vector2(40, 15.999999)
+texture = ExtResource("1_wms8s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=253026370]
+collision_layer = 0
+input_pickable = false
+monitoring = false
+monitorable = false
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2044225770]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_wms8s")
+
+[node name="DamagingComponent" type="Node" parent="." unique_id=1156466275]
+script = ExtResource("3_n0tm8")
+metadata/_custom_type_script = "uid://dapia6wbkt1yb"
+
+[node name="LightingTimer" type="Timer" parent="." unique_id=1313102024]
+one_shot = true
+
+[node name="DisableLightingTimer" type="Timer" parent="." unique_id=1558895589]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="on_player_entered"]

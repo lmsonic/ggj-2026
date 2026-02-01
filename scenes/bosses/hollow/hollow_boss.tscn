@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ldkoocrk3kx2"]
+
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_hi0pf"]
+[ext_resource type="Script" uid="uid://6sc3gsnsuara" path="res://scenes/bosses/hollow/hollow_boss.gd" id="1_ielic"]
+
+[node name="HollowBoss" type="Node2D" unique_id=566317548]
+script = ExtResource("1_ielic")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=388729806]
+modulate = Color(0, 0.60872096, 0.2869368, 1)
+scale = Vector2(32, 48)
+texture = ExtResource("1_hi0pf")
+
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=1477454069]
+modulate = Color(0, 0.3676932, 0.16262951, 1)
+position = Vector2(8, -8)
+scale = Vector2(32, 15.999999)
+texture = ExtResource("1_hi0pf")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1058025348]
+physics_interpolation_mode = 1
+avoidance_enabled = true

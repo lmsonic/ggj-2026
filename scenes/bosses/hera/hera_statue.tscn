@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://x4h5ug8xs5ul"]
+
+[ext_resource type="Script" uid="uid://dwsrae0mpaad7" path="res://scenes/bosses/hera/hera_statue.gd" id="1_pbvit"]
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_wkgsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbvit"]
+size = Vector2(32, 48)
+
+[node name="HeraStatue" type="CharacterBody2D" unique_id=1938208612]
+script = ExtResource("1_pbvit")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1395143329]
+position = Vector2(0, 8)
+scale = Vector2(32, 48)
+texture = ExtResource("1_wkgsi")
+offset = Vector2(0, -0.16666666)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402614771]
+shape = SubResource("RectangleShape2D_pbvit")

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d4ic74pf5y06r"]
+
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_j5h3b"]
+[ext_resource type="Script" uid="uid://u8g8iqafvy3y" path="res://scenes/bosses/cirkul/cirkul_boss.gd" id="1_kp25c"]
+[ext_resource type="Script" uid="uid://cm5nqhhsoudgf" path="res://scripts/arc_jump_component.gd" id="3_rsmr5"]
+[ext_resource type="Script" uid="uid://daiox0dfvi3rr" path="res://scripts/health_component.gd" id="4_oank3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5h3b"]
+size = Vector2(48, 64)
+
+[node name="CirkulBoss" type="CharacterBody2D" unique_id=745381750]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_kp25c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=482736514]
+modulate = Color(0.6167498, 0.82131195, 0, 1)
+scale = Vector2(48, 64)
+texture = ExtResource("1_j5h3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1330330318]
+shape = SubResource("RectangleShape2D_j5h3b")
+
+[node name="JumpTimer" type="Timer" parent="." unique_id=1168054845]
+one_shot = true
+
+[node name="ArcJumpComponent" type="Node" parent="." unique_id=1518529322 node_paths=PackedStringArray("boss")]
+script = ExtResource("3_rsmr5")
+boss = NodePath("..")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1708262361]
+script = ExtResource("4_oank3")
+metadata/_custom_type_script = "uid://daiox0dfvi3rr"

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c81c6685t3s36"]
+
+[ext_resource type="Script" uid="uid://cc1re6hh53w3y" path="res://scenes/bosses/hera/hera_boss.gd" id="1_qjm7c"]
+[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="2_wo16l"]
+[ext_resource type="PackedScene" uid="uid://8qgk75ldh5jj" path="res://scenes/bosses/hera/hera_cloud.tscn" id="3_mpt2k"]
+
+[node name="HeraBoss" type="Node2D" unique_id=1126699482]
+script = ExtResource("1_qjm7c")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=832749277]
+modulate = Color(0.6313726, 1, 0.44313726, 1)
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(32, 48)
+texture = ExtResource("2_wo16l")
+
+[node name="Cloud" parent="." unique_id=923179448 instance=ExtResource("3_mpt2k")]

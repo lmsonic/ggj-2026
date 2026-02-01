@@ -7,7 +7,6 @@ signal dead
 signal hit
 func damage(value: int) -> void:
 	health -= value
-	prints(health)
 	hit.emit()
 	if health <= 0:
 		die()
