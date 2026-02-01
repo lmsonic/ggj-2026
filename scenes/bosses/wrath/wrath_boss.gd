@@ -18,3 +18,12 @@ func throw()->void:
 	proj.linear_velocity = vel
 	get_tree().root.add_child(proj)
 	pass
+
+func disable() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		call_deferred("disable")
+		GameManager.play_cutscene("wrath")

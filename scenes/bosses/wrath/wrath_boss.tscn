@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bxsj7sggwakj0" path="res://scenes/bosses/wrath/wrath_boss.gd" id="1_3l47f"]
 [ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_ugv2h"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5aybi"]
+radius = 32.984844
+
 [node name="WrathBoss" type="Node2D" unique_id=1096233416]
 script = ExtResource("1_3l47f")
 
@@ -13,3 +16,13 @@ texture = ExtResource("1_ugv2h")
 
 [node name="ThrowTimer" type="Timer" parent="." unique_id=2024357560]
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=501560334]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1300688616]
+shape = SubResource("CircleShape2D_5aybi")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -5,6 +5,9 @@
 const HERA_DEATH = preload("res://assets/sfx/heraDeath.wav")
 const HOLLOW_DEATH = preload("res://assets/sfx/hollowDeath.wav")
 const CIRKUL_DEATH = preload("res://assets/sfx/cirkulDeath.wav")
+const WILLOW_DEATH = preload("res://assets/sfx/willowDeath.wav")
+const WRATH_DEATH = preload("res://assets/sfx/wrathDeath.wav")
+
 @onready var sound_component: SoundComponent = $SoundComponent
 @onready var texture_rect: TextureRect = $"../TextureRect"
 
@@ -32,6 +35,10 @@ func play_cutscene(anim:String)-> void:
 			sound_component.play_sound(HERA_DEATH)
 		"hollow":
 			sound_component.play_sound(HOLLOW_DEATH)
+		"willow":
+			sound_component.play_sound(WILLOW_DEATH)
+		"wrath":
+			sound_component.play_sound(WRATH_DEATH)
 
 func fetch_images() -> Dictionary:
 	var dict : Dictionary ={}

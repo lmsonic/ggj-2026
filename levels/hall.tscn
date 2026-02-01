@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b3rkrxkprih8s" path="res://assets/art/maps/hall.map.png" id="1_2tmi7"]
 [ext_resource type="Texture2D" uid="uid://b35wwrjm8vvpg" path="res://assets/art/maps/hall-tiles.png" id="1_xbik3"]
 [ext_resource type="PackedScene" uid="uid://sewt5itu3e0u" path="res://scenes/player/player.tscn" id="2_dfgp7"]
+[ext_resource type="AudioStream" uid="uid://dxafecvc2quf6" path="res://assets/music/cathedral.mp3" id="4_ag44c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ag44c"]
 texture = ExtResource("1_xbik3")
@@ -57,3 +58,8 @@ tile_set = SubResource("TileSet_pa5hs")
 texture = ExtResource("1_2tmi7")
 
 [node name="Player" parent="." unique_id=2134266118 instance=ExtResource("2_dfgp7")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=306892902]
+stream = ExtResource("4_ag44c")
+volume_db = -5.0
+autoplay = true
