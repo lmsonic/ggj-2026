@@ -10,4 +10,5 @@ func remove_statue()-> void:
 	statues -= 1
 	print(statues)
 	if statues <= 0:
+		GameManager.play_cutscene("hera")
 		cloud.queue_free()

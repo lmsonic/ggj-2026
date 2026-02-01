@@ -4,6 +4,7 @@ class_name LightGreenBoss extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var sprite: Sprite2D = $Sprite2D
 const CIRKUL_WAVE = preload("res://scenes/bosses/cirkul/cirkul_wave.tscn")
+@onready var music: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 @onready var arc_jump_component: ArcJumpComponent = $ArcJumpComponent
 
@@ -23,15 +24,17 @@ func _ready() -> void:
 @onready var original_color := sprite.modulate
 func on_hit() -> void:
 	var tween := create_tween()
-	print("hit?")
-	#tween.tween_property(sprite,"scale",Vector2(1.1,1.1),0.2)
-	#tween.tween_property(sprite,"scale",Vector2.ONE,0.2)
-	#tween.parallel()
 	tween.tween_property(sprite,"modulate",Color.RED,0.2)
 	tween.tween_property(sprite,"modulate",original_color,0.2)
 	
 
+
 func on_death() -> void:
+	var tween := create_tween()
+	tween.tween_property(music,"volume_db",-10.0,0.2)
+	await tween.finished
+	music.stop()
+	GameManager.play_cutscene("cirkul")
 	queue_free()
 
 const EMPTY_SOLID_TILE := Vector2i(13, 0)
@@ -60,7 +63,7 @@ func get_cell_neighbours_leaves(coords: Vector2i) -> Array[Vector2i]:
 	]
 	
 
-func erase_from_grass_map(pos: Vector2) -> bool:
+func erase_from_grass_map() -> bool:
 	var local := grass_map.to_local(global_position)
 	var map := grass_map.local_to_map(local)
 	if grass_map.get_cell_source_id(map) != -1:
@@ -70,7 +73,7 @@ func erase_from_grass_map(pos: Vector2) -> bool:
 		return true
 	return false
 		
-func erase_from_leaves_map(pos: Vector2) -> bool:
+func erase_from_leaves_map() -> bool:
 	var local := leaves_map.to_local(global_position)
 	var map := leaves_map.local_to_map(local)
 	if leaves_map.get_cell_source_id(map) != -1:
@@ -90,12 +93,11 @@ func end_jump() -> void:
 	var map := grass_map.local_to_map(local)
 	if grass_map.get_cell_atlas_coords(map) == EMPTY_SOLID_TILE:
 		health_component.damage(1)
-		print("damage?")
 		
 		
 	
-	if not erase_from_leaves_map(global_position):
-		erase_from_grass_map(global_position)
+	if not erase_from_leaves_map():
+		erase_from_grass_map()
 	
 	
 func _physics_process(delta: float) -> void:
