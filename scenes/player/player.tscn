@@ -215,7 +215,7 @@ radius = 32.984844
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1304755964]
-position = Vector2(0, 12)
+position = Vector2(0, 17)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="InputComponent" type="Node" parent="." unique_id=946395851]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cuxciuonn3xb6"]
+
+[ext_resource type="Texture2D" uid="uid://b35wwrjm8vvpg" path="res://assets/art/maps/hall-tiles.png" id="1_8p7u1"]
+[ext_resource type="Script" uid="uid://bk5ar3s8oxsqi" path="res://scenes/tomb.gd" id="1_kyc00"]
+[ext_resource type="Script" uid="uid://d2frgr2gvmdau" path="res://scripts/interactable_component.gd" id="3_gcm2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p7u1"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyc00"]
+size = Vector2(72, 40)
+
+[node name="Tomb" type="CharacterBody2D" unique_id=729444469]
+script = ExtResource("1_kyc00")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2111798549]
+shape = SubResource("RectangleShape2D_8p7u1")
+
+[node name="Tomb" type="Sprite2D" parent="." unique_id=1055955281]
+texture = ExtResource("1_8p7u1")
+region_enabled = true
+region_rect = Rect2(800, 0, 64, 32)
+
+[node name="InteractableComponent" type="Area2D" parent="." unique_id=349580999]
+collision_layer = 2
+collision_mask = 0
+input_pickable = false
+monitoring = false
+script = ExtResource("3_gcm2r")
+metadata/_custom_type_script = "uid://d2frgr2gvmdau"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1303413683]
+shape = SubResource("RectangleShape2D_kyc00")
+
+[connection signal="interacted" from="InteractableComponent" to="." method="_on_interactable_component_interacted"]

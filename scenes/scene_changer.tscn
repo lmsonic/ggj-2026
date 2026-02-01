@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://8664sdyj266g"]
+
+[ext_resource type="Script" uid="uid://b8q1i3hvbkiqn" path="res://scenes/scene_changer.gd" id="1_6xg6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa5hs"]
+size = Vector2(8, 18)
+
+[node name="SceneChanger" type="Area2D" unique_id=1513978326]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_6xg6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1002178214]
+shape = SubResource("RectangleShape2D_pa5hs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

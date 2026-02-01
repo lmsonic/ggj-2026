@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://dybjn61b2jcd"
+Fade="*uid://c4dqcwb1nc6p7"
 
 [debug]
 
