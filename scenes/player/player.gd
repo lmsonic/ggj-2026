@@ -37,7 +37,9 @@ func hit_feedback() -> void:
 
 func on_death() -> void:
 	await get_tree().physics_frame
-	get_tree().reload_current_scene()
+	var tree := get_tree()
+	if tree:
+		tree.reload_current_scene()
 	
 func _physics_process(delta: float) -> void:
 	input_component.fetch()

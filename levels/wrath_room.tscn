@@ -288,7 +288,20 @@ navigation_enabled = false
 modulate = Color(1, 1, 1, 0.40392157)
 texture = ExtResource("1_7f26u")
 
-[node name="WrathBoss" parent="." unique_id=1096233416 instance=ExtResource("2_ubqg4")]
+[node name="WrathBoss" parent="." unique_id=1096233416 node_paths=PackedStringArray("path_positions") instance=ExtResource("2_ubqg4")]
 position = Vector2(-400, 0)
+path_positions = NodePath("../WrathPath")
 
 [node name="Player" parent="." unique_id=2134266118 instance=ExtResource("4_3x6wa")]
+position = Vector2(416, -40)
+
+[node name="WrathPath" type="Node2D" parent="." unique_id=40500202]
+
+[node name="Node2D" type="Node2D" parent="WrathPath" unique_id=2000644009]
+position = Vector2(-312, -120)
+
+[node name="Node2D2" type="Node2D" parent="WrathPath" unique_id=1434713700]
+position = Vector2(-400, 0)
+
+[node name="Node2D3" type="Node2D" parent="WrathPath" unique_id=343116041]
+position = Vector2(-312, 128)
