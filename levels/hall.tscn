@@ -154,6 +154,7 @@ scene_path = "res://levels/willow_room.tscn"
 [node name="Tomb2" parent="." unique_id=841974317 instance=ExtResource("5_pa5hs")]
 position = Vector2(-96, 48)
 horizontal_offset = -32
+can_open = true
 
 [node name="SceneChanger2" parent="." unique_id=1405585558 instance=ExtResource("5_kxgo3")]
 position = Vector2(-96, 48)
@@ -162,6 +163,7 @@ scene_path = "res://levels/hera_room.tscn"
 [node name="Tomb3" parent="." unique_id=1166752354 instance=ExtResource("5_pa5hs")]
 position = Vector2(-96, 112)
 horizontal_offset = -32
+can_open = true
 
 [node name="SceneChanger3" parent="." unique_id=661836185 instance=ExtResource("5_kxgo3")]
 position = Vector2(-96, 112)
@@ -169,6 +171,7 @@ scene_path = "res://levels/wrath_room.tscn"
 
 [node name="Tomb4" parent="." unique_id=300577185 instance=ExtResource("5_pa5hs")]
 position = Vector2(96, 112)
+can_open = true
 
 [node name="SceneChanger4" parent="." unique_id=1097661305 instance=ExtResource("5_kxgo3")]
 position = Vector2(96, 112)
@@ -176,6 +179,7 @@ scene_path = "res://levels/cirkul_room.tscn"
 
 [node name="Tomb5" parent="." unique_id=1848192364 instance=ExtResource("5_pa5hs")]
 position = Vector2(96, 48)
+can_open = true
 
 [node name="SceneChanger5" parent="." unique_id=2017781863 instance=ExtResource("5_kxgo3")]
 position = Vector2(96, 48)
@@ -183,6 +187,7 @@ scene_path = "res://levels/hollow_room.tscn"
 
 [node name="Tomb6" parent="." unique_id=1531635909 instance=ExtResource("5_pa5hs")]
 position = Vector2(96, -16)
+can_open = true
 
 [node name="SceneChanger6" parent="." unique_id=44863219 instance=ExtResource("5_kxgo3")]
 position = Vector2(96, -16)

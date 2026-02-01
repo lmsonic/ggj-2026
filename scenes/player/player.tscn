@@ -231,12 +231,10 @@ max_speed = 150.0
 [node name="WalkSoundComponent" type="AudioStreamPlayer2D" parent="." unique_id=1210541802]
 stream = SubResource("AudioStreamRandomizer_75vfm")
 script = ExtResource("5_75vfm")
-same_seek = true
 
 [node name="RunSoundComponent" type="AudioStreamPlayer2D" parent="." unique_id=792837586]
 stream = SubResource("AudioStreamRandomizer_uf5tr")
 script = ExtResource("5_75vfm")
-same_seek = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=969863284]
 script = ExtResource("4_qlg0r")

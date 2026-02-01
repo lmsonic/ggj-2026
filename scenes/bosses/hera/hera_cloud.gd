@@ -8,18 +8,22 @@ var velocity := Vector2.ZERO
 @onready var lighting_timer: Timer = $LightingTimer
 @onready var lighting_time:=1.0
 @onready var distance_start_to_darken:=200.0
-@onready var lighting_sprite: Node2D = $Lighting
+@onready var lighting_sprite: Sprite2D = $Lighting
 @onready var area: Area2D = $Area2D
 @onready var disable_lighting_timer: Timer = $DisableLightingTimer
+@onready var sound_component: SoundComponent = $SoundComponent
 
 func _ready() -> void:
 	lighting_timer.timeout.connect(lighting)
 	disable_lighting_timer.timeout.connect(disable_lighting)
 	lighting_timer.start(randf_range(1.0,1.5)*  player.intimidation )
 	lighting_sprite.hide()
+const LIGHTNING_ATTACK = preload("res://assets/sfx/lightningAttack.wav")
 
 func lighting()-> void:
 	lighting_sprite.show()
+	sound_component.stream = null
+	sound_component.play_sound(LIGHTNING_ATTACK)
 	area.monitoring = true
 	disable_lighting_timer.start(randf_range(1.0,1.5) *  player.intimidation )
 	

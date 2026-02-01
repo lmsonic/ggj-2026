@@ -2,9 +2,9 @@ class_name LightGreenBoss extends CharacterBody2D
 @export var grass_map: TileMapLayer
 @export var leaves_map: TileMapLayer
 @onready var health_component: HealthComponent = $HealthComponent
-@onready var sprite: Sprite2D = $Sprite2D
 const CIRKUL_WAVE = preload("res://scenes/bosses/cirkul/cirkul_wave.tscn")
 @onready var music: AudioStreamPlayer = $"../AudioStreamPlayer"
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var arc_jump_component: ArcJumpComponent = $ArcJumpComponent
 

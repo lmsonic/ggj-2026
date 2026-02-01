@@ -1,22 +1,18 @@
 class_name SoundComponent extends AudioStreamPlayer2D
 
-@export var same_seek := false
-
-func fade_sound_out_in(fade:=0.2) -> Tween:
+func fade_sound_out_in(fade := 0.2) -> Tween:
 	var tween := create_tween()
-	tween.tween_property(self,"volume_db",-10.0,fade)
-	tween.tween_property(self,"volume_db",0.0,fade)
+	tween.tween_property(self, "volume_db", -10.0, fade)
+	tween.tween_property(self, "volume_db", 0.0, fade)
 	return tween
 
-func fade_sound_out(fade:=0.2) -> Tween:
+func fade_sound_out(fade := 0.2) -> Tween:
 	var tween := create_tween()
-	tween.tween_property(self,"volume_db",-10.0,fade)
+	tween.tween_property(self, "volume_db", -10.0, fade)
 	return tween
 
 
-
-
-func play_sound(s:AudioStream=null) -> void:
+func play_sound(s: AudioStream = null) -> void:
 	if s == null:
 		if not playing:
 			fade_sound_out_in()
