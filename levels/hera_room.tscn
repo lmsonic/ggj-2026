@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mmj1"]
 size = Vector2(560, 96)
 
-[node name="YellowRoom" type="Node2D" unique_id=673250998]
+[node name="HeraRoom" type="Node2D" unique_id=673250998]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1472136535]
 tile_set = SubResource("TileSet_fgu3n")

@@ -15,18 +15,18 @@ var velocity := Vector2.ZERO
 func _ready() -> void:
 	lighting_timer.timeout.connect(lighting)
 	disable_lighting_timer.timeout.connect(disable_lighting)
-	lighting_timer.start(randf_range(1.0,1.5))
+	lighting_timer.start(randf_range(1.0,1.5)*  player.intimidation )
 	lighting_sprite.hide()
 
 func lighting()-> void:
 	lighting_sprite.show()
 	area.monitoring = true
-	disable_lighting_timer.start(randf_range(1.0,1.5))
+	disable_lighting_timer.start(randf_range(1.0,1.5) *  player.intimidation )
 	
 func disable_lighting()-> void:
 	lighting_sprite.hide()
 	area.set_deferred("monitoring",false)
-	lighting_timer.start(randf_range(1.0,1.5))
+	lighting_timer.start(randf_range(1.0,1.5) * player.intimidation)
 
 func _exit_tree() -> void:
 	player.modulate = Color.WHITE
@@ -44,8 +44,8 @@ func _physics_process(delta: float) -> void:
 
 
 func on_player_entered(body: Node2D) -> void:
-	var player:= body as Player
-	if player!=null:
+	var p:= body as Player
+	if p!=null:
 		damaging_component.damage(player.health_component)
 		disable_lighting()
 	var statue:= body as HeraStatue

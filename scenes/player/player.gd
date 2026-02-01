@@ -10,6 +10,8 @@ class_name Player extends CharacterBody2D
 
 @onready var run_sound_thresh := movement_component.max_speed + 10.0
 
+@export var intimidation := 1.0
+
 func facing_vector() -> Vector2:
 	match anim.animation:
 		"right": return Vector2.RIGHT

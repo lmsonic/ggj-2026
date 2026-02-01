@@ -3,17 +3,17 @@ class_name MovementComponent extends Node
 @export var accel := 1000.0
 @export var decel := 2000.0
 @export var max_speed := 350.0
-@export var sprint_multiplier := 2.0
-@export var can_sprint := true
 @onready var speed := max_speed
+@export var sprint_enabled := false
+@export var sprint_multiplier := 1.8
 @export var max_sprint_charge := 1.0
-@export var sprint_charge := 1.0
+var sprint_charge := 1.0
 var sprint_exhausted := false
 
 
+func move(input: Vector2, delta: float, shift_pressed: bool = false) -> void:
 
-func move(input: Vector2, delta: float, shift_pressed:bool=false) -> void:
-	var is_sprinting := shift_pressed and not sprint_exhausted
+	var is_sprinting := shift_pressed and not sprint_exhausted and sprint_enabled
 	if is_sprinting:
 		speed = max_speed * sprint_multiplier
 		sprint_charge = maxf(sprint_charge - delta, 0.0)

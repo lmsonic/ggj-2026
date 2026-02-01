@@ -53,7 +53,6 @@ player = NodePath("..")
 accel = 800.0
 decel = 1500.0
 max_speed = 150.0
-sprint_multiplier = 1.75
 
 [node name="WalkSoundComponent" type="AudioStreamPlayer2D" parent="." unique_id=1210541802]
 stream = SubResource("AudioStreamRandomizer_75vfm")
@@ -84,6 +83,9 @@ animation = &"up"
 autoplay = "down"
 frame_progress = 0.7220579
 
-[node name="MaskChangeComponent" type="Node" parent="." unique_id=582809300 node_paths=PackedStringArray("anim")]
+[node name="MaskChangeComponent" type="Node" parent="." unique_id=582809300 node_paths=PackedStringArray("anim", "health_component", "movement_component", "player")]
 script = ExtResource("17_kvlxm")
 anim = NodePath("../AnimatedSprite2D")
+health_component = NodePath("../HealthComponent")
+movement_component = NodePath("../MovementComponent")
+player = NodePath("..")

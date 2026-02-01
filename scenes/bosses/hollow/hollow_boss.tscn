@@ -1,22 +1,109 @@
 [gd_scene format=3 uid="uid://ldkoocrk3kx2"]
 
-[ext_resource type="Texture2D" uid="uid://dxuaswtob10s8" path="res://addons/kenney_development-essentials/1×1 Pixels/pixel-white.png" id="1_hi0pf"]
 [ext_resource type="Script" uid="uid://6sc3gsnsuara" path="res://scenes/bosses/hollow/hollow_boss.gd" id="1_ielic"]
+[ext_resource type="Texture2D" uid="uid://ce2qtfp1ddup2" path="res://assets/art/char/hollow-Sheet.png" id="2_ielic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ielic"]
+atlas = ExtResource("2_ielic")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exnad"]
+atlas = ExtResource("2_ielic")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewqpx"]
+atlas = ExtResource("2_ielic")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lsfl"]
+atlas = ExtResource("2_ielic")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lrn7"]
+atlas = ExtResource("2_ielic")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42b34"]
+atlas = ExtResource("2_ielic")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f5me"]
+atlas = ExtResource("2_ielic")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u7s8"]
+atlas = ExtResource("2_ielic")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbxkc"]
+atlas = ExtResource("2_ielic")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mvi3"]
+atlas = ExtResource("2_ielic")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exnad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ielic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exnad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewqpx")
+}],
+"loop": true,
+"name": &"face_back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lsfl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lrn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42b34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f5me")
+}],
+"loop": true,
+"name": &"move_side",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u7s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbxkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mvi3")
+}],
+"loop": true,
+"name": &"twirl",
+"speed": 4.0
+}]
 
 [node name="HollowBoss" type="Node2D" unique_id=566317548]
 script = ExtResource("1_ielic")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=388729806]
-modulate = Color(0, 0.60872096, 0.2869368, 1)
-scale = Vector2(32, 48)
-texture = ExtResource("1_hi0pf")
-
-[node name="Sprite2" type="Sprite2D" parent="." unique_id=1477454069]
-modulate = Color(0, 0.3676932, 0.16262951, 1)
-position = Vector2(8, -8)
-scale = Vector2(32, 15.999999)
-texture = ExtResource("1_hi0pf")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1058025348]
 physics_interpolation_mode = 1
 avoidance_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1958146117]
+sprite_frames = SubResource("SpriteFrames_exnad")
+animation = &"face_back"
+frame_progress = 0.34516123

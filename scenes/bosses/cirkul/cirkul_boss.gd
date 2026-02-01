@@ -7,6 +7,8 @@ const CIRKUL_WAVE = preload("res://scenes/bosses/cirkul/cirkul_wave.tscn")
 
 @onready var arc_jump_component: ArcJumpComponent = $ArcJumpComponent
 
+@onready var player: Player = get_tree().get_first_node_in_group("player")
+
 @export var jump_time := 1.5
 @onready var jump_timer: Timer = $JumpTimer
 
@@ -104,4 +106,4 @@ func _physics_process(delta: float) -> void:
 		if arc_jump_component.calculate_distance() <= 100.0:
 			arc_jump_component.is_jumping = false
 			end_jump()
-			jump_timer.start(jump_time)
+			jump_timer.start(jump_time* player.intimidation)
